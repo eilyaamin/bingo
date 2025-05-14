@@ -13,7 +13,7 @@ const Room = (props: Props) => {
   const cards: CardProps[] = shuffleCards(cardItems, id || 'defaultId')
   return (
     <div>
-      <div className="flex flex-col items-center justify-evenly -translate-y-16 md:translate-y-0 min-h-screen">
+      <div className="flex flex-col items-center justify-evenly -translate-y-10 md:translate-y-0 min-h-screen">
         <Board cards={cards} />
       </div>
       <TimeSeededToast />

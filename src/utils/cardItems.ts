@@ -1,40 +1,57 @@
 import { CardProps } from "../types"
 
 export let cardItems: CardProps[] = [
-  {
-    name: "Sorry 1, I couldn't log in",
-    number: 1,
-    isActive: false,
-    onClick: () => { }
-  },
-    {
-    name: "Sorry 2, I couldn't log in",
-    number: 1,
-    isActive: false,
-    onClick: () => { }
-  },
-    {
-    name: "Sorry 3, I couldn't log in",
-    number: 1,
-    isActive: false,
-    onClick: () => { }
-  },
-    {
-    name: "Sorry, I couldn't log in",
-    number: 1,
-    isActive: false,
-    onClick: () => { }
-  },
-    {
-    name: "Sorry, I couldn't log in",
-    number: 1,
-    isActive: false,
-    onClick: () => { }
-  },
-    {
-    name: "Sorry, I couldn't log in",
-    number: 1,
-    isActive: false,
-    onClick: () => { }
-  },
+  { name: "A♠", number: 1, isActive: false, onClick: () => { } },
+  { name: "2♠", number: 2, isActive: false, onClick: () => { } },
+  { name: "3♠", number: 3, isActive: false, onClick: () => { } },
+  { name: "4♠", number: 4, isActive: false, onClick: () => { } },
+  { name: "5♠", number: 5, isActive: false, onClick: () => { } },
+  { name: "6♠", number: 6, isActive: false, onClick: () => { } },
+  { name: "7♠", number: 7, isActive: false, onClick: () => { } },
+  { name: "8♠", number: 8, isActive: false, onClick: () => { } },
+  { name: "9♠", number: 9, isActive: false, onClick: () => { } },
+  { name: "10♠", number: 10, isActive: false, onClick: () => { } },
+  { name: "J♠", number: 11, isActive: false, onClick: () => { } },
+  { name: "Q♠", number: 12, isActive: false, onClick: () => { } },
+  { name: "K♠", number: 13, isActive: false, onClick: () => { } },
+
+  { name: "A♥", number: 14, isActive: false, onClick: () => { } },
+  { name: "2♥", number: 15, isActive: false, onClick: () => { } },
+  { name: "3♥", number: 16, isActive: false, onClick: () => { } },
+  { name: "4♥", number: 17, isActive: false, onClick: () => { } },
+  { name: "5♥", number: 18, isActive: false, onClick: () => { } },
+  { name: "6♥", number: 19, isActive: false, onClick: () => { } },
+  { name: "7♥", number: 20, isActive: false, onClick: () => { } },
+  { name: "8♥", number: 21, isActive: false, onClick: () => { } },
+  { name: "9♥", number: 22, isActive: false, onClick: () => { } },
+  { name: "10♥", number: 23, isActive: false, onClick: () => { } },
+  { name: "J♥", number: 24, isActive: false, onClick: () => { } },
+  { name: "Q♥", number: 25, isActive: false, onClick: () => { } },
+
+  { name: "K♥", number: 26, isActive: false, onClick: () => { } },
+  { name: "A♦", number: 27, isActive: false, onClick: () => { } },
+  { name: "2♦", number: 28, isActive: false, onClick: () => { } },
+  { name: "3♦", number: 29, isActive: false, onClick: () => { } },
+  { name: "4♦", number: 30, isActive: false, onClick: () => { } },
+  { name: "5♦", number: 31, isActive: false, onClick: () => { } },
+  { name: "6♦", number: 32, isActive: false, onClick: () => { } },
+  { name: "7♦", number: 33, isActive: false, onClick: () => { } },
+  { name: "8♦", number: 34, isActive: false, onClick: () => { } },
+  { name: "9♦", number: 35, isActive: false, onClick: () => { } },
+  { name: "10♦", number: 36, isActive: false, onClick: () => { } },
+  { name: "J♦", number: 37, isActive: false, onClick: () => { } },
+  { name: "Q♦", number: 38, isActive: false, onClick: () => { } },
+  { name: "K♦", number: 39, isActive: false, onClick: () => { } },
+
+  { name: "A♣", number: 40, isActive: false, onClick: () => { } },
+  { name: "2♣", number: 41, isActive: false, onClick: () => { } },
+  { name: "3♣", number: 42, isActive: false, onClick: () => { } },
+  { name: "4♣", number: 43, isActive: false, onClick: () => { } },
+  { name: "5♣", number: 44, isActive: false, onClick: () => { } },
+  { name: "6♣", number: 45, isActive: false, onClick: () => { } },
+  { name: "7♣", number: 46, isActive: false, onClick: () => { } },
+  { name: "8♣", number: 47, isActive: false, onClick: () => { } },
+  { name: "9♣", number: 48, isActive: false, onClick: () => { } },
+  { name: "10♣", number: 49, isActive: false, onClick: () => { } },
+  { name: "🃏", number: 50, isActive: false, onClick: () => { } },
 ]

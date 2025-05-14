@@ -60,12 +60,13 @@ module.exports = {
         'bingo-title': '3rem',
       },
       animation: {
-        'bingo-win': 'pulse 1s ease-in-out infinite',
+        'bingo-win': 'pulse 1s ease-in-out forwards',
       },
       keyframes: {
         pulse: {
           '0%, 100%': { transform: 'scale(1)' },
           '50%': { transform: 'scale(1.05)' },
+          '100%': { transform: 'scale(1)' },
         },
       },
       gridTemplateColumns: {

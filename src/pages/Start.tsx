@@ -24,18 +24,18 @@ const Start = () => {
             to={`/room/${roomId}`}
             className="inline-block bg-bingo-purple text-white font-semibold px-6 py-3 rounded-full shadow hover:bg-purple-600 transition"
           >
-            Start a New Room
+            Start a New Game
           </Link>
         </div>
         <div className="space-y-2">
           <label htmlFor="roomId" className="block text-sm font-medium text-gray-600">
-            Or Join a Room
+            Or Join a Game
           </label>
           <div className="relative">
             <input
               type="text"
               id="roomId"
-              placeholder="Enter Room ID"
+              placeholder="Enter Game ID (e.g xgsby)"
               className="w-full rounded-full border border-gray-300 py-2 pl-4 pr-12 text-sm shadow-sm focus:outline-none focus:ring-2 focus:ring-bingo-purple transition-all ease-in-out"
               value={userInputId}
               onChange={handleChange}

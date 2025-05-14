@@ -49,8 +49,8 @@ const Board: React.FC<BoardProps> = ({ cards }) => {
     }, [active, allPaths, wonPaths]);
 
     return (
-        <div className="flex flex-col items-center p-4">
-            <div className={`opacity-0 text-green-500 font-bold text-xl mb-5 animate-bounce ${hasWon && "opacity-100"}`}>
+        <div className="p-4">
+            <div className={`text-center opacity-0 text-green-500 font-bold text-xl mb-5 animate-bounce ${hasWon && "opacity-100"}`}>
                 🎉 BINGO! You won! 🎉
             </div>
             <div className="grid grid-cols-5 gap-1">

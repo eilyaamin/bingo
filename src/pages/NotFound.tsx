@@ -98,12 +98,14 @@ const NotFound = () => {
         </div>
 
         <div className="mt-6">
+        <div>
           <Link
             to="/"
-            className="text-gray-500 font-mono text-xl bg-gray-200 p-3 rounded-md hover:shadow-md"
+            className="inline-block bg-bingo-purple text-white font-semibold px-6 py-3 rounded-full shadow hover:bg-purple-600 transition"
           >
-            Back to Home
+            Back to Home!
           </Link>
+        </div>
         </div>
       </div>
     </div>

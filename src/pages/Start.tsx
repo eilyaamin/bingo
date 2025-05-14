@@ -3,61 +3,57 @@ import { ArrowRightCircle } from 'lucide-react';
 import generateId from "../utils/generateRoomId";
 import { useEffect, useState } from 'react';
 
-type Props = {}
-
-const Start = (props: Props) => {
-
-  const [id, setId] = useState<string>("");
-  const [userID, setUserID] = useState<string>("");
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setUserID(e.target.value);
-  };
+const Start = () => {
+  const [roomId, setRoomId] = useState("");
+  const [userInputId, setUserInputId] = useState("");
 
   useEffect(() => {
-    const generated_id = generateId();
-    setId(generated_id);
+    setRoomId(generateId());
   }, []);
 
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setUserInputId(e.target.value);
+  };
+
   return (
-    <div className="flex flex-col justify-between items-center">
-      <p className="text-4xl text-white font-bold">Welcome to Bingo</p>
-      <div className='flex my-5'>
-        <Link
-          to={`/room/${id}`}
-          className="border bg-bingo-purple p-4 rounded-lg"
-        >
-          Start a Room!
-        </Link>
-      </div>
-      <div className=''>
-        <label htmlFor="Search">
-          <span className="text-sm font-medium text-gray-700"> Join a Room </span>
+    <div className="flex flex-col items-center justify-center min-h-screen mx-6">
+      <div className="max-w-md w-full rounded-2xl shadow-xl p-8 space-y-8 text-center border-t-2 border-bingo-purple">
+        <h1 className="text-3xl font-bold text-gray-800">Welcome to Bingo</h1>
+        <div>
+          <Link
+            to={`/room/${roomId}`}
+            className="inline-block bg-bingo-purple text-white font-semibold px-6 py-3 rounded-full shadow hover:bg-purple-600 transition"
+          >
+            Start a New Room
+          </Link>
+        </div>
+        <div className="space-y-2">
+          <label htmlFor="roomId" className="block text-sm font-medium text-gray-600">
+            Or Join a Room
+          </label>
           <div className="relative">
             <input
               type="text"
-              id="Search"
-              placeholder='Room Id'
-              className="mt-0.5 w-full rounded border-gray-300 pe-10 shadow-sm sm:text-sm placeholder:text-sm placeholder:pl-2"
-              value={userID}
+              id="roomId"
+              placeholder="Enter Room ID"
+              className="w-full rounded-full border border-gray-300 py-2 pl-4 pr-12 text-sm shadow-sm focus:outline-none focus:ring-2 focus:ring-bingo-purple transition-all ease-in-out"
+              value={userInputId}
               onChange={handleChange}
-              required
             />
-            {userID && <span className="absolute inset-y-0 right-2 grid w-8 place-content-center">
+            {userInputId && (
               <Link
-                to={`/room/${userID}`}
-                type="button"
-                aria-label="Submit"
-                className="rounded-full p-1.5 text-gray-700 transition-colors hover:bg-gray-100"
+                to={`/room/${userInputId}`}
+                aria-label="Join Room"
+                className="absolute inset-y-0 right-2 flex items-center justify-center p-1 text-bingo-purple hover:bg-gray-100 rounded-full hover:scale-110 transition-all ease-in"
               >
-                <ArrowRightCircle size={24} className="text-bingo-green" />
+                <ArrowRightCircle size={22} />
               </Link>
-            </span>}
+            )}
           </div>
-        </label>
+        </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default Start;

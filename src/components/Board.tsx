@@ -7,9 +7,10 @@ const FREE_INDEX = 12;
 
 const Board: React.FC<BoardProps> = ({ cards }) => {
     const [active, setActive] = useState<number[]>([FREE_INDEX]);
-    const [winningPaths, setWinningPaths] = useState<number[][]>([]);
     const [wonPaths, setWonPaths] = useState<number[][]>([]);
     const [hasWon, setHasWon] = useState<boolean>(false);
+
+    const allPaths = useMemo(() => calculatePaths(), []);
 
     const toggleCell = (index: number) => {
         if (index === FREE_INDEX) return;
@@ -21,59 +22,38 @@ const Board: React.FC<BoardProps> = ({ cards }) => {
         );
     };
 
-    // useMemo Hook avoids the recalculation of paths on every rerender.
-    const correctPaths = useMemo(() => calculatePaths(), []);
-
     useEffect(() => {
-
-        // Filling the winningPaths
-        if (winningPaths.length === 0) {
-            setWinningPaths((prev) => [...prev, ...correctPaths])
-        }
-
         const newWonPaths: number[][] = [];
-        const stillValidWonPaths: number[][] = [];
-        winningPaths.forEach((path) => {
+
+        allPaths.forEach((path) => {
             const isPathActive = path.every((i) => active.includes(i));
             const alreadyWon = wonPaths.some((won) =>
                 won.length === path.length && won.every((val, i) => val === path[i])
             );
-    
-            if (isPathActive) {
-                if (!alreadyWon) {
-                    newWonPaths.push(path);
-                    setHasWon(true)
-                }
-                stillValidWonPaths.push(path);
+
+            if (isPathActive && !alreadyWon) {
+                newWonPaths.push(path);
             }
         });
 
-        const updatedWonPaths = [...stillValidWonPaths];
-
         if (newWonPaths.length > 0) {
-            setWonPaths(updatedWonPaths); // Only update once
-    
-        } else if (updatedWonPaths.length !== wonPaths.length) {
-            setWonPaths(updatedWonPaths); // Remove broken paths
+            setWonPaths((prev) => [...prev, ...newWonPaths]);
+            setHasWon(true);
         }
 
-        if (hasWon) {
-            const timeout = setTimeout(() => {
-                setHasWon(false);
-            }, 3000);
+        const timeout = setTimeout(() => {
+            setHasWon(false);
+        }, 3000);
 
-            return () => clearTimeout(timeout);
-        }
-    }, [active, correctPaths, winningPaths, hasWon, wonPaths]);
+        return () => clearTimeout(timeout);
+    }, [active, allPaths, wonPaths]);
 
     return (
-        <div className='flex flex-col justify-between'>
-            {hasWon && (
-                <div className="self-end text-green-500 font-bold text-xl ">
-                    🎉 BINGO! You won! 🎉
-                </div>
-            )}
-            <div className="grid grid-cols-5 grid-rows-5 gap-0">
+        <div className="flex flex-col items-center p-4">
+            <div className={`opacity-0 text-green-500 font-bold text-xl mb-5 animate-bounce ${hasWon && "opacity-100"}`}>
+                🎉 BINGO! You won! 🎉
+            </div>
+            <div className="grid grid-cols-5 gap-1">
                 {Array(25).fill(null).map((_, index) => (
                     <Card
                         key={index}

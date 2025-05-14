@@ -10,9 +10,11 @@ type Props = {}
 
 const Room = (props: Props) => {
   const { id } = useParams<{ id: string }>();
-  const cards: CardProps[]  = shuffleCards(cardItems, id || 'defaultId')
+  const cards: CardProps[] = shuffleCards(cardItems, id || 'defaultId')
   return (
-    <Board cards={cards} />
+    <div className="flex flex-col items-center justify-center min-h-screen">
+      <Board cards={cards} />
+    </div>
   )
 }
 

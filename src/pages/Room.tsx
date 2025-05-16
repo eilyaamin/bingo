@@ -2,20 +2,14 @@ import Board from '../components/Board'
 import { CardProps } from '../types';
 import { cardItems } from '../utils/cardItems'
 import { shuffleCards } from '../utils/shuffleCards';
-import { useParams } from 'react-router-dom';
 import TimeSeededToast from "../components/TimeSeededToast"
 
-type Props = {}
 
-
-const Room = (props: Props) => {
-  const { id } = useParams<{ id: string }>();
-  const cards: CardProps[] = shuffleCards(cardItems, id || 'defaultId')
+const Room = () => {
+  const cards: CardProps[] = shuffleCards(cardItems)
   return (
-    <div>
-      <div className="flex flex-col items-center justify-evenly -translate-y-10 md:translate-y-0 min-h-screen">
-        <Board cards={cards} />
-      </div>
+    <div className="flex flex-col md:flex-row justify-center items-center h-screen">
+      <Board cards={cards} />
       <TimeSeededToast />
     </div>
   )

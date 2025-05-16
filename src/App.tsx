@@ -7,7 +7,7 @@ import NotFound from "./pages/NotFound"
 function App() {
   return (
     <Router>
-      <div className="min-h-screen" >
+      <div className="" >
         <Nav />
           <Routes>
             <Route path="/" element={<Start />} />

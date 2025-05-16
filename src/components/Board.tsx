@@ -49,28 +49,31 @@ const Board: React.FC<BoardProps> = ({ cards }) => {
     }, [active, allPaths, wonPaths]);
 
     return (
-        <div className="p-4">
+        <div className="">
             <div
-            className={`fixed inset-0 z-50 flex items-center justify-center transition-opacity duration-700 ${
-                hasWon ? "opacity-100" : "opacity-0 pointer-events-none"
-            }`}
+                className={`fixed inset-0 z-50 flex items-center justify-center transition-opacity duration-700 ${hasWon ? "block" : "hidden"
+                    }`}
+                onClick={() => setHasWon(false)}
             >
-            <div className="relative z-10 text-4xl md:text-6xl text-green-700 font-extrabold animate-pulse bg-bingo-red rounded-xl">
-                🎉 BINGO! You won! 🎉
+                <div className="relative z-10 text-2xl md:text-6xl text-green-700 font-extrabold animate-pulse bg-bingo-red rounded-xl px-6 py-4">
+                    🎉 BINGO! You won! 🎉
+                </div>
             </div>
-            </div>
-            <div className="grid grid-cols-5 gap-1">
+
+            <div className="flex flex-wrap max-w-[600px] scale-75">
                 {Array(25).fill(null).map((_, index) => (
-                    <Card
-                        key={index}
-                        name={cards[index]?.name || 'Default'}
-                        number={index}
-                        isActive={active.includes(index)}
-                        onClick={() => toggleCell(index)}
-                    />
+                    <div key={index} className="w-1/5 aspect-square p-0.5">
+                        <Card
+                            name={cards[index]?.name || 'Default'}
+                            number={index}
+                            isActive={active.includes(index)}
+                            onClick={() => toggleCell(index)}
+                        />
+                    </div>
                 ))}
             </div>
         </div>
+
     );
 };
 

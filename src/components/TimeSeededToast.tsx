@@ -38,16 +38,14 @@ const TimeSeededToast = () => {
     }, [])
 
     return (
-        <div className="fixed bottom-5 right-5 z-50 flex items-center scale-90">
-            <div className="w-28 md:w-44 h-32 md:h-64 bg-white border-2 border-black rounded-2xl border-bingo-purple
+        <div className="w-28 md:w-44 h-32 md:h-64 bg-white border-2 border-black rounded-2xl border-bingo-purple
                 shadow-[0_0_5px_rgba(0,0,0,0.3)] flex flex-col justify-between items-center shadow-bingo-purple
                 p-4 transform transition duration-300 hover:scale-105">
-                <div className="text-3xl font-bold">🃏</div>
-                <div className="text-4xl md:text-6xl font-semibold text-center text-gray-800 break-words">
-                    {card.name}
-                </div>
-                <div className="text-lg font-medium text-gray-600">Card</div>
+            <div className="text-3xl font-bold">🃏</div>
+            <div className="text-4xl md:text-6xl font-semibold text-center text-gray-800 break-words">
+                {card.name}
             </div>
+            <div className="text-lg font-medium text-gray-600">Card</div>
         </div>
     )
 }

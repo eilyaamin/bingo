@@ -4,7 +4,7 @@ const Card: React.FC<CardProps> = ({ name, isActive, onClick }) => {
 
     return (
         <div
-            className={`relative flex flex-col aspect-square items-center justify-center rounded
+            className={`relative flex flex-col aspect-square items-center justify-center rounded min-h-18 min-w-18
                 from-amber-200 to-amber-400 text-gray-800 text-center shadow-md max-h-32 hover:cursor-pointer
                 p-2 ${isActive ? "bg-bingo-purple animate-bingo-win" : " "} transition-all w-full`}
             onClick={onClick}
